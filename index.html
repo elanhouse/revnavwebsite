@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Navigation - Self-Storage Revenue Intelligence</title>
+    <meta name="description" content="Revenue Navigation partners with Top 500 self-storage operators using data analytics and systematic processes to drive revenue growth. See where money is leaking.">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        accent: '#22d3ee',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #020617;
+            color: white;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-border {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(34, 211, 238, 0.3));
+            border-radius: 12px;
+            padding: 1px;
+        }
+
+        .gradient-border-inner {
+            background: #0f172a;
+            border-radius: 11px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.1));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .glow {
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-blur {
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #818cf8, #6366f1);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .stat-glow {
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .problem-highlight {
+            background: linear-gradient(90deg, rgba(239, 68, 68, 0.2), transparent);
+            border-left: 3px solid #ef4444;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(90deg, rgba(34, 211, 238, 0.2), transparent);
+            border-left: 3px solid #22d3ee;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
+                    <span class="text-xl font-bold gradient-text">Revenue Navigation</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#problem" class="text-slate-300 hover:text-white transition">The Problem</a>
+                    <a href="#solution" class="text-slate-300 hover:text-white transition">Solution</a>
+                    <a href="#results" class="text-slate-300 hover:text-white transition">Results</a>
+                    <a href="#team" class="text-slate-300 hover:text-white transition">Team</a>
+                    <a href="#contact" class="text-slate-300 hover:text-white transition">Contact</a>
+                </div>
+                <a href="#contact" class="btn-primary text-white px-6 py-2.5 rounded-lg font-semibold">
+                    Get Your Audit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div class="max-w-7xl mx-auto relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-slate-700 rounded-full px-4 py-2 mb-8">
+                    <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                    <span class="text-sm text-slate-300">Revenue Intelligence for Self-Storage</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Stop Flying Blind on<br>
+                    <span class="gradient-text">$400M+ in Assets</span>
+                </h1>
+
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-8">
+                    You have occupancy. You have revenues. But you're missing move-in source, LTV, CAC, and ROI by channel.
+                    <strong class="text-white">That's 25%+ revenue left on the table.</strong>
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <span class="bg-slate-800/80 border border-slate-700 px-5 py-2 rounded-full text-sm font-medium">No Setup Required</span>
+                    <span class="bg-slate-800/80 border border-slate-700 px-5 py-2 rounded-full text-sm font-medium">Non-Disruptive</span>
+                    <span class="bg-slate-800/80 border border-slate-700 px-5 py-2 rounded-full text-sm font-medium">Day 1 Audit Deliverable</span>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-xl font-semibold text-lg">
+                        See Where Money Is Leaking
+                    </a>
+                    <a href="#results" class="border border-slate-600 hover:border-slate-400 text-white px-8 py-4 rounded-xl font-semibold text-lg transition">
+                        View Case Studies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section id="problem" class="py-20 px-6 bg-darker">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">The Blindfolded Archer Problem</h2>
+                <p class="text-xl text-slate-400 max-w-2xl mx-auto">
+                    You're shooting at revenue growth targets with a blindfold on
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">What Operators Have</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 bg-slate-800/50 rounded-xl">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">Occupancy numbers</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-slate-800/50 rounded-xl">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">Revenue totals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">What Operators Are Missing</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 problem-highlight rounded-xl">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">Move-in source attribution</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 problem-highlight rounded-xl">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">Customer Lifetime Value (LTV)</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 problem-highlight rounded-xl">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">Customer Acquisition Cost (CAC)</span>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 problem-highlight rounded-xl">
+                            <div class="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center">
+                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                            <span class="text-lg">ROI by channel (cost per <em>move-in</em>, not lead)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signal Framework -->
+            <div class="card p-8 glow">
+                <h3 class="text-2xl font-bold mb-8 text-center">The Signal Problem</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+                        <div class="text-red-400 font-bold mb-4">Typical Operator (1 Signal)</div>
+                        <ul class="space-y-3 text-slate-400">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                                Occupancy only
+                            </li>
+                        </ul>
+                        <div class="mt-4 text-sm text-red-400">High risk, low insight</div>
+                    </div>
+                    <div class="bg-accent/10 border border-accent/30 rounded-xl p-6">
+                        <div class="text-accent font-bold mb-4">Revenue Navigation (4+ Signals)</div>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-accent rounded-full"></span>
+                                Occupancy
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-accent rounded-full"></span>
+                                LTV/CAC metrics
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-accent rounded-full"></span>
+                                Move-ins/churn tracking
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-accent rounded-full"></span>
+                                Revenue per sqft
+                            </li>
+                        </ul>
+                        <div class="mt-4 text-sm text-accent">Better decisions, higher returns</div>
+                    </div>
+                </div>
+                <p class="text-center text-xl mt-8 font-medium">
+                    <span class="gradient-text">More Relevant Signals = Better Decisions = Higher Returns</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Siloed Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Your Data is Siloed Across Systems</h2>
+                <p class="text-slate-400 text-xl">Nobody connects them = 30 hours/week manual data prep</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="card p-6 text-center">
+                    <div class="text-3xl mb-3">🏢</div>
+                    <h4 class="font-bold mb-2">PMS</h4>
+                    <p class="text-slate-400 text-sm">SiteLink, storEDGE, Cubby, SSM</p>
+                    <p class="text-xs text-slate-500 mt-2">Operations data</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="text-3xl mb-3">📢</div>
+                    <h4 class="font-bold mb-2">Google Ads</h4>
+                    <p class="text-slate-400 text-sm">In-house or agency</p>
+                    <p class="text-xs text-slate-500 mt-2">Marketing data</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="text-3xl mb-3">💰</div>
+                    <h4 class="font-bold mb-2">Pricing Tools</h4>
+                    <p class="text-slate-400 text-sm">Veritec, Prorize</p>
+                    <p class="text-xs text-slate-500 mt-2">Rate data</p>
+                </div>
+                <div class="card p-6 text-center gradient-border">
+                    <div class="gradient-border-inner p-5">
+                        <div class="text-3xl mb-3">🧭</div>
+                        <h4 class="font-bold mb-2 gradient-text">Revenue Navigation</h4>
+                        <p class="text-slate-300 text-sm">Smart layer on top</p>
+                        <p class="text-xs text-accent mt-2">Connects everything</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 px-6 bg-darker">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">What We Surface</h2>
+                <p class="text-xl text-slate-400">Revenue Operating System for Self-Storage</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Waste</h3>
+                    <p class="text-slate-400">Where ad spend is leaking. 30% spend to 0 conversions is common.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Opportunity</h3>
+                    <p class="text-slate-400">Where to reallocate for maximum impact. Feed hay to faster horses.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Attribution</h3>
+                    <p class="text-slate-400">Which campaigns actually fill units. Not leads. Move-ins.</p>
+                </div>
+                <div class="card p-6">
+                    <div class="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Early Warnings</h3>
+                    <p class="text-slate-400">Problems before they hit occupancy. React before it's too late.</p>
+                </div>
+            </div>
+
+            <!-- Day 1 Audit -->
+            <div class="card p-8 text-center glow">
+                <h3 class="text-2xl font-bold mb-6">Day 1 Auto Audit Output</h3>
+                <p class="text-slate-400 mb-8">Real example from a 66-facility portfolio</p>
+                <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div>
+                        <div class="text-4xl font-bold text-red-400 stat-glow">$321,000</div>
+                        <div class="text-slate-400 mt-2">Est. Annual Wastage</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-accent stat-glow">$5,821,000</div>
+                        <div class="text-slate-400 mt-2">Est. Annual Opportunity</div>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-500 mt-8">Sources: Unit pricing, marketing data, facility ops data, economic value</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REIT Comparison -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">The REIT Advantage</h2>
+                <p class="text-slate-400 text-xl">Why REIT-level operators consistently outperform</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-slate-700">
+                            <th class="py-4 px-6 text-left font-semibold">Category</th>
+                            <th class="py-4 px-6 text-left text-slate-400">Traditional Operators</th>
+                            <th class="py-4 px-6 text-left text-accent">REITs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-800">
+                            <td class="py-4 px-6 font-semibold">Cost per Move-In</td>
+                            <td class="py-4 px-6 text-slate-400">$450+</td>
+                            <td class="py-4 px-6 text-accent font-bold">&lt;$50</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="py-4 px-6 font-semibold">Pricing Strategy</td>
+                            <td class="py-4 px-6 text-slate-400">Gut feel, manual adjustments</td>
+                            <td class="py-4 px-6 text-accent">Data-driven, dynamic</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="py-4 px-6 font-semibold">Marketing</td>
+                            <td class="py-4 px-6 text-slate-400">Manual, campaign-by-campaign</td>
+                            <td class="py-4 px-6 text-accent">Automated, real-time optimization</td>
+                        </tr>
+                        <tr class="border-b border-slate-800">
+                            <td class="py-4 px-6 font-semibold">Revenue Management</td>
+                            <td class="py-4 px-6 text-slate-400">Reactive, after problems</td>
+                            <td class="py-4 px-6 text-accent">Predictive, before issues</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-semibold">Visibility</td>
+                            <td class="py-4 px-6 text-slate-400">Spreadsheets, weekly reports</td>
+                            <td class="py-4 px-6 text-accent">Real-time dashboards</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="py-16 px-6 bg-darker">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4">Portfolio Performance</h2>
+            <p class="text-slate-400 text-center mb-12">Live metrics from active client portfolios</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <div class="metric-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-accent">2.8x</div>
+                    <div class="text-sm text-slate-400">Marketing ROI</div>
+                    <div class="text-xs text-green-400 mt-1">+12% vs last month</div>
+                </div>
+                <div class="metric-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-accent">$142</div>
+                    <div class="text-sm text-slate-400">RevPAU</div>
+                    <div class="text-xs text-green-400 mt-1">+8% vs last month</div>
+                </div>
+                <div class="metric-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-accent">92.4%</div>
+                    <div class="text-sm text-slate-400">Occupancy</div>
+                    <div class="text-xs text-green-400 mt-1">+3.2% vs last month</div>
+                </div>
+                <div class="metric-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-accent">$156</div>
+                    <div class="text-sm text-slate-400">Cost/Move-in</div>
+                    <div class="text-xs text-green-400 mt-1">-38% vs last year</div>
+                </div>
+                <div class="metric-card p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-accent">+47%</div>
+                    <div class="text-sm text-slate-400">YoY Growth</div>
+                    <div class="text-xs text-green-400 mt-1">Overall portfolio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Case Studies Section -->
+    <section id="results" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Proven Results</h2>
+                <p class="text-slate-400 text-xl">Real outcomes from real operators</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Case Study 1 -->
+                <div class="card p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-primary/20 px-4 py-2 rounded-full">
+                            <span class="text-primary font-bold">Top 50 Operator</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 mb-6">73 facilities, 28,000 units</p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Cost per move-in</span>
+                            <span class="text-accent font-bold">$500+ &rarr; $150 (-70%)</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Monthly move-ins (paid ads)</span>
+                            <span class="text-accent font-bold">10 &rarr; 800+ (+7,900%)</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Occupancy</span>
+                            <span class="text-accent font-bold">60-75% &rarr; Stabilized</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-slate-400">Revenue impact</span>
+                            <span class="text-accent font-bold">+$2M in 12 months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="card p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="bg-blue-500/20 px-4 py-2 rounded-full">
+                            <span class="text-blue-400 font-bold">Top 100 Operator</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 mb-6">62 facilities, 22,000 units</p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Wasted ad spend eliminated</span>
+                            <span class="text-accent font-bold">$10K/month (100%)</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Cost per move-in</span>
+                            <span class="text-accent font-bold">$300+ &rarr; &lt;$100 (-67%)</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-slate-700">
+                            <span class="text-slate-400">Net move-outs</span>
+                            <span class="text-accent font-bold">-200/mo &rarr; Positive</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-slate-400">Time to stabilize</span>
+                            <span class="text-accent font-bold">3 months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typical Results -->
+            <div class="card p-8 text-center glow">
+                <h3 class="text-2xl font-bold mb-8">Typical Results Across Clients</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="text-5xl font-bold gradient-text">+$3.2M</div>
+                        <div class="text-slate-400 mt-2">Revenue opportunity identified</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold gradient-text">-40%</div>
+                        <div class="text-slate-400 mt-2">Customer acquisition cost</div>
+                    </div>
+                    <div>
+                        <div class="text-5xl font-bold gradient-text">2.8x</div>
+                        <div class="text-slate-400 mt-2">Average ROI</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10 Waste Buckets -->
+    <section class="py-20 px-6 bg-darker">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">The 10 Waste Buckets We Find</h2>
+                <p class="text-slate-400 text-xl">Common revenue leaks in every portfolio we audit</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">1</div>
+                    <p class="text-sm">Geotargeting waste</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">2</div>
+                    <p class="text-sm">Facilities missing campaigns</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">3</div>
+                    <p class="text-sm">30% spend to 0 conversions</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">4</div>
+                    <p class="text-sm">Site speed issues</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">5</div>
+                    <p class="text-sm">Landing page quality</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">6</div>
+                    <p class="text-sm">Keyword/targeting issues</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">7</div>
+                    <p class="text-sm">Growth locations starved</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">8</div>
+                    <p class="text-sm">High-ROI underspending</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">9</div>
+                    <p class="text-sm">Mispriced units</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <div class="text-2xl font-bold text-red-400 mb-2">10</div>
+                    <p class="text-sm">PMS data errors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12-Month Roadmap -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">12-Month Transformation</h2>
+                <p class="text-slate-400 text-xl">Our proven methodology for driving results</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card p-6 relative">
+                    <div class="absolute -top-3 left-6 bg-primary px-3 py-1 rounded-full text-sm font-bold">Days 1-30</div>
+                    <h3 class="text-xl font-bold mb-4 mt-4">Deep Analysis</h3>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            NDA and secure data access
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Sync operations and marketing data
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Analyze 300+ metrics
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Identify revenue gaps
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-6 relative">
+                    <div class="absolute -top-3 left-6 bg-primary px-3 py-1 rounded-full text-sm font-bold">Months 1-3</div>
+                    <h3 class="text-xl font-bold mb-4 mt-4">Strategy & Launch</h3>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Select highest impact strategies
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Create per-facility action plans
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Execute Q1 priorities
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Measure early results
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-6 relative">
+                    <div class="absolute -top-3 left-6 bg-primary px-3 py-1 rounded-full text-sm font-bold">Months 4-9</div>
+                    <h3 class="text-xl font-bold mb-4 mt-4">Optimize & Scale</h3>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Monthly performance reviews
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Real-time adjustments
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Quarterly deep dives
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                            Double down on winners
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-6 relative">
+                    <div class="absolute -top-3 left-6 bg-accent px-3 py-1 rounded-full text-sm font-bold text-darker">Month 12</div>
+                    <h3 class="text-xl font-bold mb-4 mt-4">Target Achieved</h3>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2"></span>
+                            Hit occupancy growth goal
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2"></span>
+                            Comprehensive year-end review
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2"></span>
+                            Document proven strategies
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 bg-accent rounded-full mt-2"></span>
+                            Plan Year 2 growth
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-6 bg-darker">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Leadership Team</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Industry veterans with decades of combined experience in self-storage operations, marketing, and technology.
+                </p>
+            </div>
+
+            <!-- Leadership -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+                <div class="card p-8 text-center">
+                    <img src="images/marus_whelan.png" alt="Marcus Whelan" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-primary/30">
+                    <h3 class="text-xl font-bold">Marcus Whelan</h3>
+                    <p class="text-primary mb-3">Co-Founder</p>
+                    <p class="text-slate-400 text-sm">Self-storage marketing and data analytics expert who has analyzed 60,000+ facilities. Expertise includes competitive intelligence, market demographics, and facility benchmarking.</p>
+                </div>
+                <div class="card p-8 text-center">
+                    <img src="images/mattw.png" alt="Matthew Watts" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-primary/30">
+                    <h3 class="text-xl font-bold">Matthew Watts</h3>
+                    <p class="text-primary mb-3">Chief Technology Officer</p>
+                    <p class="text-slate-400 text-sm">Technology leader specializing in cost analytics, marketing automation, fintech systems, and scalable data infrastructure. Y Combinator alumni.</p>
+                </div>
+            </div>
+
+            <!-- Extended Team -->
+            <h3 class="text-2xl font-bold text-center mb-8">Extended Team</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="card p-4 text-center">
+                    <img src="images/matthew_wall.png" alt="Matthew Wall" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Matthew Wall</h4>
+                    <p class="text-primary text-sm">Program Manager</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/Lachlan.png" alt="Lachlan Mellings" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Lachlan Mellings</h4>
+                    <p class="text-primary text-sm">Transformation Director</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/hiromi.png" alt="Hiromi Kajita" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Hiromi Kajita</h4>
+                    <p class="text-primary text-sm">Digital Marketing Specialist</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/tam_buchan.png" alt="Tam Buchan" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Tam Buchan</h4>
+                    <p class="text-primary text-sm">Director of Local Search</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/hannah_maynard.png" alt="Hannah Maynard" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Hannah Maynard</h4>
+                    <p class="text-primary text-sm">Brand Experience Producer</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/michael_webb.png" alt="Michael Webb" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Michael Webb</h4>
+                    <p class="text-primary text-sm">Creative Director</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/helen_arangorin.png" alt="Helen Arangorin" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Helen Arangorin</h4>
+                    <p class="text-primary text-sm">Marketing Assistant</p>
+                </div>
+                <div class="card p-4 text-center">
+                    <img src="images/tessie_brereton.png" alt="Tessie Brereton" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover">
+                    <h4 class="font-semibold">Tessie Brereton</h4>
+                    <p class="text-primary text-sm">Executive Secretary</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">Our Values</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Integrity</h3>
+                    <p class="text-slate-400 text-sm">Complete transparency regarding data, decisions, and success</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Reliability</h3>
+                    <p class="text-slate-400 text-sm">Month-to-month partnership earned through consistent results</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Partnership</h3>
+                    <p class="text-slate-400 text-sm">Success metrics aligned with client growth</p>
+                </div>
+                <div class="card p-6 text-center">
+                    <div class="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Excellence</h3>
+                    <p class="text-slate-400 text-sm">Institutional-grade analytics for independent operators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-darker">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to See Where Money Is Leaking?</h2>
+            <p class="text-slate-400 mb-8 text-lg">Get a full audit of your portfolio. No commitment. Just clarity.</p>
+
+            <div class="card p-8 text-left glow">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold mb-4 text-lg">Contact Information</h3>
+                        <div class="space-y-4 text-slate-400">
+                            <p class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                <span>(254) 347-3347</span>
+                            </p>
+                            <p class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <span>hello@revenuenavigation.com</span>
+                            </p>
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-primary mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span>9442 North Capital of Texas Highway<br>Arboretum Blvd #500<br>Austin, TX 78759</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold mb-4 text-lg">Company</h3>
+                        <div class="space-y-4 text-slate-400">
+                            <p>A <strong class="text-white">BOOKING AI, INC</strong> brand</p>
+                            <p class="mt-4">
+                                <a href="https://www.revenuenavigation.com" class="text-accent hover:underline">www.revenuenavigation.com</a>
+                            </p>
+                            <div class="pt-4">
+                                <a href="#contact" class="btn-primary inline-block text-white px-6 py-3 rounded-lg font-semibold">
+                                    Schedule Your Audit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                    </svg>
+                    <span class="text-slate-400 text-sm">&copy; 2026 Revenue Navigation. A BOOKING AI, INC brand.</span>
+                </div>
+                <div class="flex gap-6 text-sm">
+                    <a href="#problem" class="text-slate-400 hover:text-white transition">Problem</a>
+                    <a href="#solution" class="text-slate-400 hover:text-white transition">Solution</a>
+                    <a href="#results" class="text-slate-400 hover:text-white transition">Results</a>
+                    <a href="#team" class="text-slate-400 hover:text-white transition">Team</a>
+                    <a href="#contact" class="text-slate-400 hover:text-white transition">Contact</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">Privacy</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
